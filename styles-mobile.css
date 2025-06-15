@@ -1,0 +1,255 @@
+/* Mobile: use a cropped image for small screens */
+@media (max-width: 768px) {
+  .hero-section {
+    background: url('assets/BG-mobile.jpg') center/cover no-repeat;
+    /* you can adjust background‐position if needed, e.g.: */
+    background-position: center top;
+    display: flex;
+    justify-content: center;
+    /* horizontal center */
+    align-items: flex-end;
+    /* vertical bottom */
+    text-align: center;
+    /* center the text inside */
+    padding-bottom: 2rem;
+    /* add some space from bottom */
+    padding-left: 2rem;
+    height: 100vh;
+    /* ensure full screen height */
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  /* Justify About Section text */
+  .about-section .bio p {
+    text-align: justify;
+  }
+
+  /* Responsive: stack on mobile */
+  .services-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* filter-bar Responsive adjustments for small screens */
+  .filter-bar {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    /* space between buttons */
+    margin: 1rem 0;
+    /* vertical spacing from other content */
+  }
+
+  .filter-bar button {
+    width: 100%;
+    /* fill each grid cell */
+    text-align: center;
+    /* center the text */
+    padding: 0.60rem;
+    /* increase tap area */
+    font-size: 1rem;
+    /* ensure legibility */
+  }
+
+  /* ─── Header & Nav ─── */
+  .site-header .container,
+  .sticky-nav .container {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .site-header .logo,
+  .sticky-nav .logo-small {
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .site-header .main-nav ul,
+  .sticky-nav .sticky-links {
+    flex: 1 1 100%;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .site-header .social-icons,
+  .sticky-nav .sticky-social-icons {
+    flex: 1 1 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  /* ─── Hero Section ─── */
+  .hero-content {
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .intro-text {
+    font-size: 0.9rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+
+
+  /* ─── Footer ─── */
+  .footer-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px 0;
+  }
+
+  .footer-col {
+    text-align: center;
+  }
+
+  .footer-col.links-footer ul {
+    padding: 0;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .back-to-top {
+    margin: 0 auto;
+  }
+
+  /* ─── Mobile‑only toggles ─── */
+  .menu-toggle {
+    display: flex;
+  }
+
+  .main-nav,
+  .social-icons,
+  .sticky-nav {
+    display: none !important;
+  }
+
+  /* Responsive tweaks for subpage hero */
+  .subpage .hero-section {
+    padding: 1rem;
+  }
+
+  .subpage .hero-title {
+    font-size: 2rem;
+  }
+
+  .subpage .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Optionally hide the back-to-top icon on very small screens */
+@media (max-width: 480px) {
+  .back-to-top {
+    display: none;
+  }
+}
+
+/* ─── Mobile Hamburger (white) ─── */
+/* These are only displayed on mobile, so they are placed here.
+   Their `display: none` is handled in the `desktop.css` file. */
+.menu-toggle {
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 3000;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  /* always white */
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* ─── Drop‑down Menu ─── */
+.mobile-menu {
+  position: absolute;
+  top: 64px;
+  /* assuming header is 64px tall */
+  left: 0;
+  width: 100%;
+  background: #1a1a1a;
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  z-index: 2000;
+  overflow-y: auto;
+  max-height: calc(100vh - 64px);
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.mobile-menu ul,
+.mobile-menu li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* In case some browsers still render a marker pseudo‑element */
+.mobile-menu li::marker {
+  content: '';
+}
+
+.mobile-menu li + li {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 1rem .5rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu a:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
