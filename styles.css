@@ -97,7 +97,8 @@ a { text-decoration: none; }
 /* etc… */
 
 
-/* Hero */
+/* ..........................Hero...................................... */
+
 .hero-section { position: relative; height: 100vh; background: url('assets/BG.jpg') center/cover no-repeat; transition: background-image 0.5s ease-in-out; overflow: hidden; }
 .hero-section .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
 .hero-content { position: relative; top: 50%; transform: translateY(-50%); max-width: 600px; }
@@ -108,6 +109,17 @@ a { text-decoration: none; }
 .btn-primary { background: #6c63ff; color: #fff; }
 .btn-outline { background: transparent; border: 2px solid #fff; color: #fff; }
 .btn-outline:hover { background: #fff; color: #333; }
+
+
+/* Mobile: use a cropped image for small screens */
+@media (max-width: 768px) {
+  .hero-section {
+    background: url('assets/BG-mobile.jpg') center/cover no-repeat;
+    /* you can adjust background‐position if needed, e.g.: */
+    background-position: center top;
+  }
+}
+
 
 
 /* Sections */
