@@ -1,7 +1,7 @@
 /* Mobile: use a cropped image for small screens */
 @media (max-width: 768px) {
   .hero-section {
-    background: url('assets/BG-mobile.jpg') center/cover no-repeat;
+    background: url('../assets/BG-mobile.jpg') center/cover no-repeat;
     /* you can adjust background‐position if needed, e.g.: */
     background-position: center top;
     display: flex;
