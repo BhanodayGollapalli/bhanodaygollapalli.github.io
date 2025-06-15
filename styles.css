@@ -99,8 +99,17 @@ a { text-decoration: none; }
 
 /* ..........................Hero...................................... */
 
-.hero-section { position: relative; height: 100vh; background: url('assets/BG.jpg') center/cover no-repeat; transition: background-image 0.5s ease-in-out; overflow: hidden; }
-.hero-section .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+.hero-section { 
+  position: relative; height: 100vh; 
+  background: url('assets/BG.jpg') center/cover no-repeat; 
+  transition: background-image 0.5s ease-in-out; 
+  overflow: hidden; }
+
+.hero-section .overlay { 
+  position: absolute; 
+  inset: 0; 
+  background: rgba(0,0,0,0.6); }
+
 .hero-content { position: relative; top: 50%; transform: translateY(-50%); max-width: 600px; }
 .intro-text { letter-spacing: 2px; color: #aaa; text-transform: uppercase; margin-bottom: 10px; }
 .hero-title { font-size: 3rem; margin-bottom: 10px; }
@@ -110,13 +119,40 @@ a { text-decoration: none; }
 .btn-outline { background: transparent; border: 2px solid #fff; color: #fff; }
 .btn-outline:hover { background: #fff; color: #333; }
 
+/* Hero container flush-left */
+.hero-section .container {
+  /* cancel the centering margins */
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* If you want it even tighter, reduce the container width here */
+.hero-section .container {
+  width: 90%;  /* instead of 90% */
+}
+
+/* And if you’d like extra control on the inner hero content */
+.hero-content {
+  padding-left: 10%;  /* nudge it further in from the absolute left if needed */
+}
+
 
 /* Mobile: use a cropped image for small screens */
 @media (max-width: 768px) {
   .hero-section {
-    background: url('assets/BG-mobile.jpg') center/cover no-repeat;
-    /* you can adjust background‐position if needed, e.g.: */
+    background: url('assets/BG-mobile.jpg') center/cover no-repeat; /* you can adjust background‐position if needed, e.g.: */
     background-position: center top;
+    display: flex;
+    justify-content: center;  /* horizontal center */
+    align-items: flex-end;    /* vertical bottom */
+    text-align: center;       /* center the text inside */
+    padding-bottom: 2rem;     /* add some space from bottom */
+    padding-left: 2rem;
+    height: 100vh;            /* ensure full screen height */
+  }
+
+  .hero-content {
+    width: 100%;
   }
 }
 
@@ -162,7 +198,18 @@ a { text-decoration: none; }
   line-height: 1.6;
   color: #444; /* medium-dark text */
   max-width: 600px;
+  text-align: justify;  /* Justify About Section text */
 }
+
+@media (max-width: 768px) {
+
+  /* Justify About Section text */
+.about-section .bio p {
+  text-align: justify;
+}
+ }
+
+
 
 /* Services Section Cards */
 .services-section {
@@ -330,6 +377,25 @@ a { text-decoration: none; }
   background: #554fc1;
 }
 
+/* filter-bar Responsive adjustments for small screens */
+
+@media (max-width: 768px) {
+  .filter-bar {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;              /* space between buttons */
+    margin: 1rem 0;           /* vertical spacing from other content */
+  }
+
+  .filter-bar button {
+    width: 100%;              /* fill each grid cell */
+    text-align: center;       /* center the text */
+    padding: 0.60rem;         /* increase tap area */
+    font-size: 1rem;          /* ensure legibility */
+  }
+}
+
+
 /* ───────── Scroll‑In Animation ───────── */
 .photo-gallery .photo {
   opacity: 0;
@@ -472,6 +538,11 @@ a { text-decoration: none; }
   margin: 0 auto;     /* center within its container */
 }
 
+.about-footer p {
+  text-align: justify;
+  
+}
+
 /* Optionally hide the back-to-top icon on very small screens */
 @media (max-width: 480px) {
   .back-to-top {
@@ -516,22 +587,7 @@ a { text-decoration: none; }
   justify-content: flex-start;
 }
 
-/* Hero container flush-left */
-.hero-section .container {
-  /* cancel the centering margins */
-  margin-left: 0;
-  margin-right: auto;
-}
 
-/* If you want it even tighter, reduce the container width here */
-.hero-section .container {
-  width: 90%;  /* instead of 90% */
-}
-
-/* And if you’d like extra control on the inner hero content */
-.hero-content {
-  padding-left: 10%;  /* nudge it further in from the absolute left if needed */
-}
 
 /* Buttons already left-aligned by .hero-buttons { justify-content: flex-start; } */
 
