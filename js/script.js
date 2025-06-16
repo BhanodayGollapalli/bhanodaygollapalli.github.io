@@ -20,71 +20,112 @@ document.addEventListener('DOMContentLoaded', () => {
 // ............................................Portfolio......................................
 
 document.addEventListener('DOMContentLoaded', () => {
-  const gallery   = document.querySelector('.photo-gallery');
-  const photos    = Array.from(gallery.querySelectorAll('.photo'));
-  const lightbox  = createLightbox();
-  const categories = ['all','portrait','landscape','designs']; 
+    const gallery = document.querySelector('.photo-gallery');
+    const photos = Array.from(gallery.querySelectorAll('.photo')); // Individual photo containers
+    const lightbox = createLightbox();
+    const categories = ['all', 'portrait', 'landscape', 'designs'];
 
-  // 1) Build filter bar
-  const filterBar = document.createElement('div');
-  filterBar.className = 'filter-bar';
-  categories.forEach(cat => {
-    const btn = document.createElement('button');
-    btn.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
-    btn.dataset.filter = cat;
-    if (cat === 'all') btn.classList.add('active');
-    filterBar.append(btn);
-  });
-  gallery.parentNode.insertBefore(filterBar, gallery);
-
-  // 2) Filtering logic
-  filterBar.addEventListener('click', e => {
-    if (e.target.tagName !== 'BUTTON') return;
-    filterBar.querySelectorAll('button').forEach(b => b.classList.remove('active'));
-    e.target.classList.add('active');
-    const filter = e.target.dataset.filter;
-    photos.forEach(photo => {
-      const cat = photo.dataset.category || 'all';
-      photo.style.display = (filter === 'all' || filter === cat) ? '' : 'none';
+    // 1) Build filter bar (no change here)
+    const filterBar = document.createElement('div');
+    filterBar.className = 'filter-bar';
+    categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+        btn.dataset.filter = cat;
+        if (cat === 'all') btn.classList.add('active');
+        filterBar.append(btn);
     });
-    onScroll(); // reposition scroll‑in visibility
-  });
+    gallery.parentNode.insertBefore(filterBar, gallery);
 
-  // 3) Lightbox logic
-  gallery.addEventListener('click', e => {
-    const img = e.target.closest('img');
-    if (!img) return;
-    lightbox.show(img.src);
-  });
+    // 2) Filtering logic (***** THIS IS THE MODIFIED SECTION *****)
+    filterBar.addEventListener('click', e => {
+        if (e.target.tagName !== 'BUTTON') return;
+        filterBar.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        const filter = e.target.dataset.filter;
 
-  // 4) Scroll‑in animation
-  function onScroll() {
-    const vh = window.innerHeight;
-    photos.forEach(photo => {
-      if (photo.style.display === 'none') return;
-      const rect = photo.getBoundingClientRect();
-      if (rect.top < vh - 50) photo.classList.add('visible');
+        // Step 1: Hide/show individual .photo elements
+        photos.forEach(photo => {
+            const cat = photo.dataset.category || 'all';
+            photo.style.display = (filter === 'all' || filter === cat) ? '' : 'none'; // '' reverts to default display
+        });
+
+        // Step 2: Now, iterate through each .column and hide it if all its .photo children are hidden
+        const columns = gallery.querySelectorAll('.column');
+        columns.forEach(column => {
+            // Count how many .photo elements inside this column are currently visible
+            const visiblePhotosInColumn = Array.from(column.querySelectorAll('.photo')).filter(photo => {
+                return photo.style.display !== 'none';
+            });
+
+            // If no photos are visible in this column (and it's not the 'all' filter), hide the column
+            if (visiblePhotosInColumn.length === 0 && filter !== 'all') {
+                column.style.display = 'none';
+            } else {
+                // Otherwise, ensure the column is visible
+                column.style.display = ''; // Revert to its default display (e.g., 'flex' from your CSS)
+            }
+        });
+
+        onScroll(); // Reposition scroll-in visibility for visible items
     });
-  }
-  window.addEventListener('scroll', onScroll);
-  onScroll();
 
-  // Helper: create the overlay
-  function createLightbox() {
-    const overlay = document.createElement('div');
-    overlay.className = 'lightbox-overlay';
-    const img = document.createElement('img');
-    overlay.appendChild(img);
-    document.body.appendChild(overlay);
-    overlay.addEventListener('click', () => overlay.style.display = 'none');
-    return {
-      show(src) {
-        img.src = src;
-        overlay.style.display = 'flex';
-      }
-    };
-  }
+    // 3) Lightbox logic (no change here)
+    gallery.addEventListener('click', e => {
+        const img = e.target.closest('img');
+        if (!img) return;
+        lightbox.show(img.src);
+    });
+
+    // 4) Scroll-in animation (no change here, already accounts for display:none)
+    function onScroll() {
+        const vh = window.innerHeight;
+        // Important: Only consider currently visible photos for animation
+        photos.forEach(photo => {
+            if (photo.style.display === 'none') return; // Skip hidden photos
+            const rect = photo.getBoundingClientRect();
+            if (rect.top < vh - 50) photo.classList.add('visible');
+        });
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    // Helper: create the overlay (MODIFIED)
+function createLightbox() {
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  const img = document.createElement('img');
+  overlay.appendChild(img);
+  document.body.appendChild(overlay);
+
+  // MODIFIED: Use a dedicated hide function for the lightbox
+  const lightboxFunctions = {
+    show(src) {
+      img.src = src;
+      // First, make it display flex so it takes up space, but still invisible
+      overlay.style.display = 'flex';
+      // Use a tiny timeout to ensure the browser registers the display change
+      // before applying the opacity change, which allows the transition to work.
+      setTimeout(() => {
+        overlay.classList.add('open'); // Add the 'open' class to trigger fade-in
+      }, 10); // A small delay, e.g., 10ms, is often sufficient
+    },
+    hide() {
+      overlay.classList.remove('open'); // Remove 'open' to trigger fade-out
+      // After the fade-out transition completes, set display to none
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 300); // This timeout should match the CSS transition duration (0.3s = 300ms)
+    }
+  };
+
+  // MODIFIED: Attach click listener to call the hide function
+  overlay.addEventListener('click', () => lightboxFunctions.hide());
+
+  return lightboxFunctions;
+}
 });
+
 
 // ..............................Back to top listener................................
 

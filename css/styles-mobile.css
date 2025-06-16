@@ -1,7 +1,7 @@
 /* Mobile: use a cropped image for small screens */
 @media (max-width: 768px) {
   .hero-section {
-    background: url('../assets/BG-mobile.jpg') center/cover no-repeat;
+    background: url('../assets/BG-mobile2.jpg') center/cover no-repeat;
     /* you can adjust background‐position if needed, e.g.: */
     background-position: center top;
     display: flex;
@@ -11,7 +11,7 @@
     /* vertical bottom */
     text-align: center;
     /* center the text inside */
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
     /* add some space from bottom */
     padding-left: 2rem;
     height: 100vh;
@@ -20,6 +20,7 @@
 
   .hero-content {
     width: 100%;
+    
   }
 
   /* Justify About Section text */
@@ -32,6 +33,40 @@
     flex-direction: column;
     align-items: center;
   }
+
+  /* ───────── Lightbox Styles ───────── */
+
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  /* display: none;  <-- Keep this as the initial hidden state */
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+
+  /* --- NEW ANIMATION PROPERTIES --- */
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+  /* --- END NEW ANIMATION PROPERTIES --- */
+
+  /* Ensure it's hidden by default, JS will change it to 'flex' and add 'open' class */
+  display: none;
+}
+
+/* NEW CLASS: This class will be added by JavaScript to open the lightbox */
+.lightbox-overlay.open {
+  display: flex; /* Make it visible for layout */
+  opacity: 1;    /* Fade it in */
+}
+
+.lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
 
   /* filter-bar Responsive adjustments for small screens */
   .filter-bar {

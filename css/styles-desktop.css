@@ -16,6 +16,8 @@ html {
   padding: 0;
 }
 
+
+
 body {
   font-family: Arial, sans-serif;
   background: #111;
@@ -152,7 +154,7 @@ a {
 .hero-section {
   position: relative;
   height: 100vh;
-  background: url('../assets/BG.jpg') center/cover no-repeat;
+  background: url('../assets/BG2.jpg') center/cover no-repeat;
   transition: background-image 0.5s ease-in-out;
   overflow: hidden;
 }
@@ -409,15 +411,30 @@ a {
   transform: scale(1.03);
 }
 
+
 /* ───────── Lightbox Styles ───────── */
 .lightbox-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.8);
-  display: none;
+  /* display: none;  <-- Keep this as the initial hidden state */
   align-items: center;
   justify-content: center;
   z-index: 2000;
+
+  /* --- NEW ANIMATION PROPERTIES --- */
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+  /* --- END NEW ANIMATION PROPERTIES --- */
+
+  /* Ensure it's hidden by default, JS will change it to 'flex' and add 'open' class */
+  display: none;
+}
+
+/* NEW CLASS: This class will be added by JavaScript to open the lightbox */
+.lightbox-overlay.open {
+  display: flex; /* Make it visible for layout */
+  opacity: 1;    /* Fade it in */
 }
 
 .lightbox-overlay img {
