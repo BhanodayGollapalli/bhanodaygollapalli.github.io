@@ -811,40 +811,6 @@ h1.subpage-title {
   opacity: 1;
 }
 
-/* ......................................................Loader Overlay....................................................... */
-#loader {
-  position: fixed;
-  inset: 0;
-  background: #111;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 5000;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.5s, visibility 0.5s;
-}
-
-#loader.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
-/* Spinner */
-.spinner {
-  width: 60px;
-  height: 60px;
-  border: 6px solid rgba(255, 255, 255, 0.2);
-  border-top-color: #ffffff;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 /* ─── Section Fade Transition ─── */
 section {
@@ -854,18 +820,6 @@ section {
 
 section.hidden {
   opacity: 0;
-}
-
-/* Loader fade‑out faster */
-#loader {
-  transition: opacity 0.3s, visibility 0.3s;
-  /* was 0.5s */
-}
-
-/* Spinner spin faster */
-.spinner {
-  animation: spin 0.7s linear infinite;
-  /* was 1s */
 }
 
 /* Section fade faster */
