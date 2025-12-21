@@ -699,7 +699,7 @@ a {
 .logo-img,
 .logo-img-small,
 .logo-img-footer {
-  height: 80px;
+  height: 90px;
   /* adjust this value as needed */
   width: auto;
   display: block;
