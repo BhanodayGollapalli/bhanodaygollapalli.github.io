@@ -25,9 +25,10 @@ body {
 }
 
 .container {
-  width: 90%;
+  width: 100%;        /* change from 90% */
   max-width: 1200px;
   margin: auto;
+  padding: 0 15px;    /* keep spacing */
 }
 
 a {
@@ -882,4 +883,8 @@ section {
 .menu-toggle {
   display: none;
   /* hidden by default */
+}
+
+html, body {
+  overflow-x: hidden;
 }

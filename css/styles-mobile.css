@@ -144,29 +144,63 @@
 
 
   /* ─── Footer ─── */
-  .footer-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 20px 0;
+   .site-footer .container {
+    width: 100%;
+    padding: 0 15px;
   }
 
-  .footer-col {
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+
+  /* Make logo/about full width */
+  .about-footer {
+    grid-column: span 2;
     text-align: center;
   }
 
-  .footer-col.links-footer ul {
+  /* THIS fixes the logo */
+  .about-footer .footer-logo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-footer .logo-img-footer {
+    margin: 0 auto;
+  }
+
+  .links-footer li {
+  margin-bottom: 10px;
+}
+
+ .about-footer .footer-social {
+    display: flex;
+    justify-content: center !important;  /* FORCE CENTER */
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  /* Align text properly */
+  .links-footer,
+  .contact-footer {
+    text-align: left;
+  }
+
+  /* Fix spacing */
+  .footer-col {
     padding: 0;
   }
 
-  .footer-bottom {
-    flex-direction: column;
-    gap: 10px;
-  }
 
   .back-to-top {
     margin: 0 auto;
   }
+
+
+
 
   /* ─── Mobile‑only toggles ─── */
   .menu-toggle {
