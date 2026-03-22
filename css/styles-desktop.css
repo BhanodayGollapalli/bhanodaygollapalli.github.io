@@ -191,51 +191,86 @@ a {
   margin-bottom: 20px;
 }
 
-.hero-buttons .btn {
+/* ......................................Hero Section Buttons ............................. */
+
+.hero-buttons {
+  display: flex;
+  align-items: center; /* THIS FIXES EVERYTHING */
+}
+
+.hero-buttons a {
+  margin-right: 15px;
+}
+
+/* .......Services Button......... */
+.btn-services {
   display: inline-block;
   padding: 12px 30px;
-  border-radius: 4px;
-  margin-right: 15px;
-  font-weight: 500;
-}
-
-.btn-primary {
-  background: #6c63ff;
-  color: #fff;
-}
-
-.btn-contact {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 30px;
-  border: 2px solid #fff;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #6c63ff, #5a54d1);
   color: #fff;
   text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* HOVER */
+.btn-services:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+}
+
+
+/* ..........Contact Button........... */
+.btn-contact {
   position: relative;
+  display: inline-block;
+  transform: none !important;   /* prevents inherited movement */
+  padding: 12px 30px;
+  border: 2px solid rgba(255,255,255,0.8);
+  border-radius: 6px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
   overflow: hidden;
-  transition: 0.3s;
+  transition: all 0.4s ease;
 }
 
-/* Hide icon initially */
+/* TEXT */
+.btn-contact .text {
+  display: inline-block;
+  transition: all 0.4s ease;
+}
+
+/* ICON */
 .btn-contact .icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, 30px); /* start below */
   opacity: 0;
-  transform: translateX(-10px);
-  transition: 0.3s;
+
+  transition: all 0.4s ease;
+  font-size: 18px;
 }
 
-/* Hover effect */
+/* HOVER */
 .btn-contact:hover {
-  background: #25D366; /* WhatsApp green */
+  background: #25D366;
   border-color: #25D366;
-  transform: translateY(-2px);
 }
 
-/* Show icon on hover */
+/* TEXT GOES UP */
+.btn-contact:hover .text {
+  transform: translateY(-30px);
+  opacity: 0;
+}
+
+/* ICON COMES CENTER */
 .btn-contact:hover .icon {
+  transform: translate(-50%, -50%);
   opacity: 1;
-  transform: translateX(0);
 }
 
 /* Hero container flush-left */
