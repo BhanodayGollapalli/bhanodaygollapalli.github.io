@@ -199,6 +199,10 @@ a {
 }
 
 .hero-buttons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px; /* fixed height */
   margin-right: 15px;
 }
 
@@ -234,6 +238,7 @@ a {
   text-decoration: none;
   overflow: hidden;
   transition: all 0.4s ease;
+  white-space: nowrap;
 }
 
 /* TEXT */
@@ -316,12 +321,77 @@ a {
   flex-wrap: wrap;
   /* makes it responsive */
 }
+/* ........................... About ..................*/
 
+.about-card {
+  position: relative;
+  width: 100%;
+  max-width: 500px; /* ✅ keeps your original size */
+  overflow: hidden;
+  border-radius: 10px;
+
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease;
+}
+
+/* IMAGE FIX */
 .about-photo {
   width: 100%;
-  max-width: 500px;
   height: auto;
+  display: block;
 }
+
+/* OVERLAY */
+.about-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.95),
+    rgba(0,0,0,0)
+  );
+
+  color: #fff;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.3s ease;
+}
+
+/* HOVER SHOW TEXT */
+.about-card:hover .about-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* GLOW EFFECT */
+.about-card:hover {
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+.about-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.15),
+    transparent 60%
+  );
+
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.about-card:hover::before {
+  opacity: 1;
+}
+
+/*................................................................................................*/
 
 .bio {
   flex: 1;
@@ -422,7 +492,7 @@ a {
   text-decoration: none;
 }
 
-/* Portfolio Section */
+/* ...................................... Portfolio Section .......................................*/
 .portfolio-section {
   padding: 60px 20px;
   background: #f9f9f9;
@@ -470,6 +540,72 @@ a {
 .photo-gallery .photo img:hover {
   transform: scale(1.05);
   filter: brightness(1.1);
+}
+
+/*...........................Before-After.....................*/
+
+/* GRID */
+.ba-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* CARD */
+.ba-card {
+  width: 300px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.ba-card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE */
+.compare-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.compare-image .img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.compare-image .img.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* BUTTONS */
+.compare-buttons {
+  padding: 10px;
+  text-align: center;
+}
+
+.compare-buttons button {
+  padding: 6px 12px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.compare-buttons button.active {
+  background: #6c63ff;
 }
 
 

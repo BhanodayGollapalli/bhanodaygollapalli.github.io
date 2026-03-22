@@ -23,13 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const gallery = document.querySelector('.photo-gallery');
     const photos = Array.from(gallery.querySelectorAll('.photo')); // Individual photo containers
     const lightbox = createLightbox();
-    const categories = ['all', 'portrait', 'landscape', 'designs'];
+    const categories = ['all', 'portrait', 'landscape', 'edits'];
 
     // 1) Build filter bar (no change here)
     const filterBar = document.createElement('div');
     filterBar.className = 'filter-bar';
     categories.forEach(cat => {
         const btn = document.createElement('button');
+        btn.classList.add('filter-btn');
         btn.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
         btn.dataset.filter = cat;
         if (cat === 'all') btn.classList.add('active');
@@ -64,6 +65,18 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 // Otherwise, ensure the column is visible
                 column.style.display = ''; // Revert to its default display (e.g., 'flex' from your CSS)
+            }
+
+            const beforeAfterSection = document.getElementById('beforeAfterSection');
+
+            if (filter === 'edits') {
+              beforeAfterSection.style.display = 'block';
+              gallery.style.display = 'none';
+            
+            } else {
+              beforeAfterSection.style.display = 'none';
+              gallery.style.display = 'flex';
+            
             }
         });
 
@@ -220,3 +233,61 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// ABOUT IMAGE TILT ANIMATION
+
+const card = document.querySelector('.about-card');
+
+card.addEventListener('mousemove', (e) => {
+  const rect = card.getBoundingClientRect();
+
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
+
+  const rotateX = -(y - centerY) / 25;
+  const rotateY = (x - centerX) / 25;
+
+  card.style.transform = `
+    rotateX(${rotateX}deg)
+    rotateY(${rotateY}deg)
+    scale(1.03)
+  `;
+});
+
+card.addEventListener('mouseleave', () => {
+  card.style.transform = `
+    rotateX(0deg)
+    rotateY(0deg)
+    scale(1)
+  `;
+});
+
+
+//Before After Button Logic
+
+document.querySelectorAll('.compare-container, .ba-card').forEach(container => {
+  const beforeBtn = container.querySelector('.beforeBtn');
+  const afterBtn = container.querySelector('.afterBtn');
+  const beforeImg = container.querySelector('.before');
+  const afterImg = container.querySelector('.after');
+
+  if (!beforeBtn || !afterBtn) return;
+
+  beforeBtn.addEventListener('click', () => {
+    beforeImg.classList.add('active');
+    afterImg.classList.remove('active');
+
+    beforeBtn.classList.add('active');
+    afterBtn.classList.remove('active');
+  });
+
+  afterBtn.addEventListener('click', () => {
+    afterImg.classList.add('active');
+    beforeImg.classList.remove('active');
+
+    afterBtn.classList.add('active');
+    beforeBtn.classList.remove('active');
+  });
+});

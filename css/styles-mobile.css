@@ -1,5 +1,15 @@
 /* Mobile: use a cropped image for small screens */
+* {
+  scroll-behavior: smooth;
+}
+
 @media (max-width: 768px) {
+
+
+  section {
+  padding: 80px 0;
+}
+
   .hero-section {
     background: url('../assets/BG-mobile.webp') center/cover no-repeat;
     /* you can adjust background‐position if needed, e.g.: */
@@ -21,6 +31,16 @@
   .hero-content {
     width: 100%;
     
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .hero-buttons a {
+    flex: 1; /* both buttons equal width */
+    text-align: center;
   }
 
   /* Justify About Section text */
