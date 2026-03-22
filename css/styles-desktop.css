@@ -155,7 +155,7 @@ a {
 .hero-section {
   position: relative;
   height: 100vh;
-  background: url('../assets/BG.jpg') center/cover no-repeat;
+  background: url('../assets/BG.webp') center/cover no-repeat;
   transition: background-image 0.5s ease-in-out;
   overflow: hidden;
 }
@@ -260,12 +260,9 @@ a {
 }
 
 .about-photo {
-  width: 500px;
-  height: 600px;
-  object-fit: cover;
-  max-width: 100%;
-  order: 2;
-  /* pushes image to the right side */
+  width: 100%;
+  max-width: 500px;
+  height: auto;
 }
 
 .bio {
@@ -408,8 +405,13 @@ a {
 }
 
 /* Optional: Hover effect */
+.photo-gallery .photo img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
 .photo-gallery .photo img:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
 
