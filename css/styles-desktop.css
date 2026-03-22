@@ -209,7 +209,6 @@ a {
   align-items: center;
   justify-content: center;
   gap: 8px;
-
   padding: 12px 30px;
   border: 2px solid #fff;
   color: #fff;
@@ -238,12 +237,6 @@ a {
   opacity: 1;
   transform: translateX(0);
 }
-
-/* Optional: fade text slightly */
-.btn-contact:hover .text {
-  opacity: 1;
-}
-
 
 /* Hero container flush-left */
 .hero-section .container {
