@@ -204,16 +204,46 @@ a {
   color: #fff;
 }
 
-.btn-outline {
-  background: transparent;
+.btn-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 12px 30px;
   border: 2px solid #fff;
   color: #fff;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
 }
 
-.btn-outline:hover {
-  background: #fff;
-  color: #333;
+/* Hide icon initially */
+.btn-contact .icon {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: 0.3s;
 }
+
+/* Hover effect */
+.btn-contact:hover {
+  background: #25D366; /* WhatsApp green */
+  border-color: #25D366;
+  transform: translateY(-2px);
+}
+
+/* Show icon on hover */
+.btn-contact:hover .icon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Optional: fade text slightly */
+.btn-contact:hover .text {
+  opacity: 1;
+}
+
 
 /* Hero container flush-left */
 .hero-section .container {
