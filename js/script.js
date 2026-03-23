@@ -287,3 +287,15 @@ document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
   }
 });
+
+// ================= LOADER FIX =================
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  if (!loader) return;
+
+  loader.classList.add('hidden');
+
+  setTimeout(() => {
+    loader.style.display = 'none';
+  }, 300);
+});
