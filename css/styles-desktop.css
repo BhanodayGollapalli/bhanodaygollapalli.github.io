@@ -311,6 +311,9 @@ a {
   display: flex;
   gap: 40px;
   align-items: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
 }
 
 .about-section .container {
@@ -390,6 +393,60 @@ a {
 .about-card:hover::before {
   opacity: 1;
 }
+
+
+/*...............................About-Me_Gallery...........................*/
+
+.about-me-gallery .title {
+  display: block;
+  text-align: center;
+  font-size: 32px;
+  color: #222;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.about-me-gallery {
+  padding: 100px 0 60px;   /* more top space */
+  margin-top: 60px;        /* push it below about section */
+  background: #fff !important;
+  position: relative;
+  z-index: 1;
+}
+
+.me-thumbnails {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+}
+
+/* hide scrollbar (clean look) */
+.me-thumbnails::-webkit-scrollbar {
+  display: none;
+}
+
+.me-thumbnails img {
+  height: 220px;
+  border-radius: 12px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0.5;
+  transform: scale(0.85);
+  flex-shrink: 0;
+}
+
+/* CENTER IMAGE */
+.me-thumbnails img.active {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* hover effect */
+.me-thumbnails img:hover {
+  transform: scale(1.08);
+}
+
 
 /*................................................................................................*/
 

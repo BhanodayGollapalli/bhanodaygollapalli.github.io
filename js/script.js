@@ -299,3 +299,64 @@ window.addEventListener('load', () => {
     loader.style.display = 'none';
   }, 300);
 });
+
+// ================= AUTO SCROLL (FINAL STABLE) =================
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.me-thumbnails');
+  if (!container) return;
+
+  let speed = 0.5;
+  let isPaused = false;
+
+  // duplicate content for seamless loop
+  container.innerHTML += container.innerHTML;
+
+  function animate() {
+    if (!isPaused) {
+      container.scrollLeft += speed;
+
+      // seamless reset
+      if (container.scrollLeft >= container.scrollWidth / 2) {
+        container.scrollLeft = 0;
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  // pause interactions
+  container.addEventListener('mouseenter', () => isPaused = true);
+  container.addEventListener('mouseleave', () => isPaused = false);
+  container.addEventListener('touchstart', () => isPaused = true);
+  container.addEventListener('touchend', () => isPaused = false);
+});
+
+
+// ================= CENTER FOCUS =================
+function updateCenterImage() {
+  const container = document.querySelector('.me-thumbnails');
+  const images = container.querySelectorAll('img');
+
+  const center = container.scrollLeft + container.clientWidth / 2;
+
+  let closest = null;
+  let closestDistance = Infinity;
+
+  images.forEach(img => {
+    const imgCenter = img.offsetLeft + img.offsetWidth / 2;
+    const distance = Math.abs(center - imgCenter);
+
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      closest = img;
+    }
+  });
+
+  images.forEach(img => img.classList.remove('active'));
+  if (closest) closest.classList.add('active');
+}
+
+// run continuously
+setInterval(updateCenterImage, 100);

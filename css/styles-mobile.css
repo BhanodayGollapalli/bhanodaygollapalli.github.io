@@ -48,6 +48,10 @@
     text-align: justify;
   }
 
+  .me-thumbnails img {
+    height: 180px;
+  }
+
   /* Responsive: stack on mobile */
   .services-grid {
     flex-direction: column;
@@ -342,3 +346,4 @@
 .mobile-menu a:hover {
   background: rgba(255, 255, 255, 0.05);
 }
+
