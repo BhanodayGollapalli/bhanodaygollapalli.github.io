@@ -493,6 +493,8 @@ a {
 }
 
 /* ...................................... Portfolio Section .......................................*/
+
+
 .portfolio-section {
   padding: 60px 20px;
   background: #f9f9f9;
@@ -541,6 +543,31 @@ a {
   transform: scale(1.05);
   filter: brightness(1.1);
 }
+
+/*...Disable dragging images to download.....*/
+
+img {
+  -webkit-user-drag: none; /* works in Chrome/Safari */
+}
+
+.photo {
+  position: relative;
+}
+
+.watermark {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: rgba(255,255,255,0.6);
+  pointer-events: none;
+  background: rgba(104, 104, 104, 0.4);
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  
+}
+
 
 /*...........................Before-After.....................*/
 
@@ -639,8 +666,22 @@ a {
   max-height: 90%;
   border-radius: 4px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
+  
 }
+
+.lightbox-overlay .nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.lightbox-overlay .prev { left: 20px; }
+.lightbox-overlay .next { right: 20px; }
 
 /* ───────── Filter Bar ───────── */
 .filter-bar {
@@ -1084,3 +1125,6 @@ section {
 html, body {
   overflow-x: hidden;
 }
+
+
+
