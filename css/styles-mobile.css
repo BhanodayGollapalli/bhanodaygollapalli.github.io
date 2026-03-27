@@ -174,11 +174,13 @@
       opacity 0.4s ease;
 
     will-change: transform, opacity;
+    pointer-events: none;   /* 👈 prevent blocking clicks */
   }
 
   .mobile-menu.open {
     transform: translateY(0);
     opacity: 1;
+    pointer-events: auto;   /* 👈 allow clicks when open */
   }
 
   /* HEADER */
