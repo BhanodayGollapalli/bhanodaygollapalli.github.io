@@ -1,124 +1,92 @@
-/* Mobile: use a cropped image for small screens */
+/* ================= GLOBAL ================= */
 * {
   scroll-behavior: smooth;
 }
 
-@media (max-width: 768px) {
-
-
-  section {
-  padding: 80px 0;
+/* HIDE MOBILE MENU BY DEFAULT */
+.mobile-menu {
+  display: none;
 }
 
+.menu-toggle {
+  display: none;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  section {
+    padding: 80px 0;
+  }
+
+  /* HERO (kept original) */
   .hero-section {
     background: url('../assets/BG-mobile.webp') center/cover no-repeat;
-    /* you can adjust background‐position if needed, e.g.: */
     background-position: center top;
     display: flex;
     justify-content: center;
-    /* horizontal center */
     align-items: flex-end;
-    /* vertical bottom */
     text-align: center;
-    /* center the text inside */
     padding-bottom: 4rem;
-    /* add some space from bottom */
     padding-left: 2rem;
     height: 100vh;
-    /* ensure full screen height */
   }
 
   .hero-content {
     width: 100%;
-    
+    padding: 0 1rem;
+    text-align: center;
   }
 
+  .intro-text { font-size: 0.9rem; }
+  .hero-title { font-size: 2rem; }
+  .hero-subtitle { font-size: 1rem; }
+
+  /* 🔥 ORIGINAL BUTTON STYLE RESTORED */
   .hero-buttons {
     display: flex;
     gap: 10px;
   }
 
   .hero-buttons a {
-    flex: 1; /* both buttons equal width */
+    flex: 1;
     text-align: center;
   }
 
-  /* Justify About Section text */
+  /* ABOUT */
   .about-section .bio p {
     text-align: justify;
   }
 
   .bio h2 {
-  font-size: 30px;
-  
-}
+    font-size: 30px;
+  }
 
   .me-thumbnails img {
     height: 180px;
   }
 
-  /* Responsive: stack on mobile */
+  /* SERVICES */
   .services-grid {
     flex-direction: column;
     align-items: center;
   }
 
-  /* ───────── Lightbox Styles ───────── */
-
-.lightbox-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.8);
-  /* display: none;  <-- Keep this as the initial hidden state */
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-
-  /* --- NEW ANIMATION PROPERTIES --- */
-  opacity: 0; /* Start invisible */
-  transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
-  /* --- END NEW ANIMATION PROPERTIES --- */
-
-  /* Ensure it's hidden by default, JS will change it to 'flex' and add 'open' class */
-  display: none;
-}
-
-/* NEW CLASS: This class will be added by JavaScript to open the lightbox */
-.lightbox-overlay.open {
-  display: flex; /* Make it visible for layout */
-  opacity: 1;    /* Fade it in */
-}
-
-.lightbox-overlay img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 4px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease;
-}
-
-  /* filter-bar Responsive adjustments for small screens */
+  /* FILTER (RESTORED ORIGINAL GRID) */
   .filter-bar {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
-    /* space between buttons */
     margin: 1rem 0;
-    /* vertical spacing from other content */
   }
 
   .filter-bar button {
     width: 100%;
-    /* fill each grid cell */
-    text-align: center;
-    /* center the text */
     padding: 0.60rem;
-    /* increase tap area */
     font-size: 1rem;
-    /* ensure legibility */
   }
 
-  /* ─── Header & Nav ─── */
+  /* HEADER */
   .site-header .container,
   .sticky-nav .container {
     flex-wrap: wrap;
@@ -133,222 +101,154 @@
     margin-bottom: 10px;
   }
 
-  .site-header .main-nav ul,
-  .sticky-nav .sticky-links {
-    flex: 1 1 100%;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-
-  .site-header .social-icons,
-  .sticky-nav .sticky-social-icons {
-    flex: 1 1 100%;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-
-  /* ─── Hero Section ─── */
-  .hero-content {
-    padding: 0 1rem;
-    text-align: center;
-  }
-
-  .intro-text {
-    font-size: 0.9rem;
-  }
-
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-
-  .hero-buttons .btn {
-    width: 100%;
-    margin-bottom: 0.75rem;
-  }
-
-
-  /* ─── Footer ─── */
-   .site-footer .container {
-    width: 100%;
-    padding: 0 15px;
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-  }
-
-  /* Make logo/about full width */
-  .about-footer {
-    grid-column: span 2;
-    text-align: center;
-  }
-
-  /* THIS fixes the logo */
-  .about-footer .footer-logo {
-    display: flex;
-    justify-content: center;
-  }
-
-  .about-footer .logo-img-footer {
-    margin: 0 auto;
-  }
-
-  .links-footer li {
-  margin-bottom: 10px;
-}
-
- .about-footer .footer-social {
-    display: flex;
-    justify-content: center !important;  /* FORCE CENTER */
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-  }
-
-  /* Align text properly */
-  .links-footer,
-  .contact-footer {
-    text-align: left;
-  }
-
-  /* Fix spacing */
-  .footer-col {
-    padding: 0;
-  }
-
-
-  .back-to-top {
-    margin: 0 auto;
-  }
-
-
-
-
-  /* ─── Mobile‑only toggles ─── */
-  .menu-toggle {
-    display: flex;
-  }
-
+  /* HIDE DESKTOP NAV */
   .main-nav,
   .social-icons,
   .sticky-nav {
-    display: none !important;
+    display: none;
   }
 
-  /* Responsive tweaks for subpage hero */
-  .subpage .hero-section {
-    padding: 1rem;
+  /* ================= MOBILE MENU ================= */
+
+  /* SHOW ON MOBILE */
+
+  .mobile-logo {
+  height: 50px;        /* 🔥 adjust size here */
+  width: auto;
+  opacity: 0.6;        /* subtle look like your reference */
+}
+
+  .mobile-menu {
+    display: flex;
   }
 
-  .subpage .hero-title {
-    font-size: 2rem;
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 5000;
+    cursor: pointer;
   }
 
-  .subpage .hero-subtitle {
-    font-size: 1rem;
+  .menu-toggle span {
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+
+  /* MENU ANIMATION */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: #f5f5f5;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 4000;
+
+    transform: translateY(40px);
+    opacity: 0;
+
+    transition: 
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.4s ease;
+
+    will-change: transform, opacity;
+  }
+
+  .mobile-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* HEADER */
+  .mobile-menu-header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ccc;
+    font-weight: 600;
+  }
+
+  .mobile-close {
+    font-size: 32px;
+    color: #1f3d1f;
+    cursor: pointer;
+  }
+
+  /* MENU ITEMS */
+  .mobile-menu ul {
+    list-style: none;
+    text-align: center;
+  }
+
+  .mobile-menu li {
+    margin: 20px 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .mobile-menu.open li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* STAGGER */
+  .mobile-menu.open li:nth-child(1) { transition-delay: 0.15s; }
+  .mobile-menu.open li:nth-child(2) { transition-delay: 0.22s; }
+  .mobile-menu.open li:nth-child(3) { transition-delay: 0.29s; }
+  .mobile-menu.open li:nth-child(4) { transition-delay: 0.36s; }
+  .mobile-menu.open li:nth-child(5) { transition-delay: 0.43s; }
+
+  .mobile-menu a {
+    font-size: 30px;
+    font-weight: 600;
+    color: #1f3d1f;
+    text-decoration: none;
+  }
+
+  /* SOCIAL */
+  .mobile-social {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    gap: 20px;
+  }
+
+  .mobile-social a {
+    font-size: 18px;
+    color: #1f3d1f;
   }
 }
 
-/* Optionally hide the back-to-top icon on very small screens */
+/* SMALL DEVICES */
 @media (max-width: 480px) {
   .back-to-top {
     display: none;
   }
 }
-
-/* ─── Mobile Hamburger (white) ─── */
-/* These are only displayed on mobile, so they are placed here.
-   Their `display: none` is handled in the `desktop.css` file. */
-.menu-toggle {
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 24px;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 3000;
-  cursor: pointer;
-}
-
-.menu-toggle span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background: #fff;
-  /* always white */
-  border-radius: 2px;
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-.menu-toggle.open span:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
-}
-
-.menu-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.open span:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
-}
-
-/* ─── Drop‑down Menu ─── */
-.mobile-menu {
-  position: absolute;
-  top: 64px;
-  /* assuming header is 64px tall */
-  left: 0;
-  width: 100%;
-  background: #1a1a1a;
-  transform: scaleY(0);
-  transform-origin: top center;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-  opacity: 0;
-  z-index: 2000;
-  overflow-y: auto;
-  max-height: calc(100vh - 64px);
-}
-
-.mobile-menu.open {
-  opacity: 1;
-  transform: scaleY(1);
-}
-
-.mobile-menu ul,
-.mobile-menu li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* In case some browsers still render a marker pseudo‑element */
-.mobile-menu li::marker {
-  content: '';
-}
-
-.mobile-menu li + li {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.mobile-menu a {
-  display: block;
-  padding: 1rem .5rem;
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: background 0.2s;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.mobile-menu a:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
-

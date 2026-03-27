@@ -209,20 +209,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // ================= MOBILE MENU =================
+
+
 document.addEventListener('DOMContentLoaded', () => {
-  const toggleBtn = document.getElementById('openMobileMenu');
+  const openBtn = document.getElementById('openMobileMenu');
+  const closeBtn = document.getElementById('closeMobileMenu');
   const mobileMenu = document.getElementById('mobileMenu');
 
-  if (!toggleBtn || !mobileMenu) return;
+  if (!openBtn || !mobileMenu || !closeBtn) return;
 
-  toggleBtn.addEventListener('click', () => {
-    toggleBtn.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
+  // OPEN
+  openBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('open');
   });
 
+  // CLOSE (X button)
+  closeBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+  });
+
+  // CLOSE when clicking links
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      toggleBtn.classList.remove('open');
       mobileMenu.classList.remove('open');
     });
   });
