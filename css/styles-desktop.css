@@ -1002,7 +1002,7 @@ img {
 .logo-img,
 .logo-img-small,
 .logo-img-footer {
-  height: 90px;
+  height: 70px;
   /* adjust this value as needed */
   width: auto;
   display: block;
