@@ -5,6 +5,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Bookmania';
+  src: url('../fonts/bookmania-light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -328,7 +335,7 @@ a {
 
 /*..About Text..*/
 .bio h2 {
-  font-family: 'Eagle Lake', serif;
+  font-family: 'bookmania-light.otf', serif;
   font-size: 48px;
   line-height: 1.3;
   letter-spacing: 1px;
@@ -336,7 +343,7 @@ a {
 }
 
 .bio p {
-  font-family: 'Lora', serif;
+  font-family: 'bookmania-light.otf', serif;
   font-size: 17px;
   line-height: 1.8;
   color: #444;
@@ -1185,4 +1192,193 @@ html, body {
 }
 
 
+/* ================= CONTACT PAGE ================= */
 
+.contact-page {
+  background: #f5f5f5;
+  padding: 120px 0;
+  min-height: 100vh;
+}
+
+.contact-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.contact-left {
+  flex: 1;
+}
+
+.contact-text {
+  font-size: 20px;
+  color: #1f3d1f;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.email {
+  font-size: 26px;
+  color: #1f3d1f;
+  font-weight: 700;
+}
+
+
+
+/* INSTAGRAM */
+
+.contact-social {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.contact-social h2 {
+  font-size: 50px;
+  color: #1f3d1f;
+  margin-bottom: 20px;
+}
+
+.handles a {
+  font-size: 36px;
+  color: #ff4b2b;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.handles a:hover {
+  text-decoration: underline;
+}
+
+/* ================= CONTACT HEADER COLOR ================= */
+
+.contact-page-body .main-nav a,
+.contact-page-body .social-icons a {
+  color: #000 !important;
+  font-weight: 700;
+}
+
+/* Optional: hamburger lines also black */
+.contact-page-body .menu-toggle span {
+  background: #000;
+}
+
+.contact-page-body .main-nav a:hover {
+  color: #6c63ff;
+}
+
+.nav-icon a:hover {
+  color: #6c63ff;
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+/* ================= FULL WIDTH SCROLL TEXT ================= */
+
+.contact-page {
+  position: relative;
+  overflow: hidden;
+}
+
+/* FULL WIDTH TEXT */
+.scroll-text-global {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 100%;
+  
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* TRACK */
+.scroll-track {
+  display: flex;
+  width: max-content;
+  animation: scrollLoop 50s linear infinite;
+}
+
+/* TEXT BLOCK */
+.scroll-track span {
+  white-space: nowrap;
+  font-size: 120px;   /* 🔥 BIG */
+  font-weight: 1000;   /* 🔥 BOLD */
+  color: #1f3d1f;     /* 🔥 SOLID color */
+  padding-right: 80px;
+  
+}
+
+/* ANIMATION */
+@keyframes scrollLoop {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* CONTENT ABOVE TEXT */
+.contact-grid {
+  position: relative;
+  z-index: 2;
+}
+
+/* ================= CONTACT IMAGE STYLE ================= */
+
+.contact-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* IMAGE CARD STYLE */
+.contact-right img {
+  
+  width: 100%;
+  max-width: 600px;     /* 🔥 control size */
+  border-radius: 50px;  /* 🔥 smooth corners */
+  
+  display: block;
+
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.15); /* 🔥 soft shadow */
+
+  object-fit: cover;
+  transform: translateY(50px); /* 🔥 slight down offset */
+}
+
+
+/* ================= INSTAGRAM SECTION ================= */
+
+.contact-instagram {
+  margin-top: 120px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.insta-title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #1f3d1f;
+}
+
+.insta-handles {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.insta-handles a {
+  font-size: 40px;
+  font-weight: 800;
+  color: #ff4b2b;
+  text-decoration: none;   /* 🔥 remove underline */
+  transition: 0.3s;
+}
+
+.insta-handles a:hover {
+  opacity: 0.7;
+}

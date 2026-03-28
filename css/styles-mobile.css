@@ -248,9 +248,105 @@
   }
 }
 
-/* SMALL DEVICES */
-@media (max-width: 480px) {
-  .back-to-top {
-    display: none;
+/* ================= CONTACT MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  .contact-grid {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .contact-text {
+    font-size: 16px;
+  }
+
+  .email {
+    font-size: 18px;
+  }
+
+  .contact-right img {
+    max-width: 100%;
+  }
+
+  .contact-social h2 {
+    font-size: 28px;
+  }
+
+  .handles a {
+    font-size: 20px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .scroll-track {
+    font-size: 40px;
+  }
+
+}
+
+/* ================= CONTACT MOBILE SCROLL TEXT ================= */
+
+@media (max-width: 768px) {
+
+  .scroll-track span {
+    font-size: 70px;   /* 🔥 smaller */
+    letter-spacing: 4px;
+     font-weight: 1000;
+     margin-top: -10px;
+    
+  }
+
+}
+
+/* ================= CONTACT MOBILE LAYOUT ================= */
+
+@media (max-width: 768px) {
+
+  .contact-grid {
+    flex-direction: column;
+    align-items: center;
+    text-align: left; /* keep text natural */
+  }
+
+  /* IMAGE FIRST */
+  .contact-right {
+    order: 1;
+    margin-top: 100px;   /* 🔥 pulls image into CONTACT text */
+    z-index: 2;
+  }
+
+  /* TEXT BELOW IMAGE */
+  .contact-left {
+    order: 2;
+    margin-top: 50px;
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .contact-instagram {
+    margin-top: 60px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .insta-title {
+    font-size: 28px;
+  }
+
+  .insta-handles {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .insta-handles a {
+    font-size: 24px;
   }
 }
