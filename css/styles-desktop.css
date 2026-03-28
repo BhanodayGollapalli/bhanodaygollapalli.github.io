@@ -1324,6 +1324,10 @@ html, body {
   z-index: 2;
 }
 
+.contact-left{
+  margin-top: 250px;
+}
+
 /* ================= CONTACT IMAGE STYLE ================= */
 
 .contact-right {
@@ -1353,6 +1357,7 @@ html, body {
 
 .contact-instagram {
   margin-top: 120px;
+  margin-left: 200px;
   display: flex;
   align-items: center;
   gap: 40px;

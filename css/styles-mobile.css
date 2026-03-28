@@ -335,10 +335,12 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
+    margin-left: 20px;
   }
 
   .insta-title {
     font-size: 28px;
+    margin-left: 50px;
   }
 
   .insta-handles {
