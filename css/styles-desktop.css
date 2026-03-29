@@ -1387,3 +1387,98 @@ html, body {
 .insta-handles a:hover {
   opacity: 0.7;
 }
+
+
+
+/* ================= HEADER HOVER FIX ================= */
+
+/* MAIN NAV LINKS */
+.main-nav a {
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.main-nav a:hover {
+  color: #6c63ff;
+  transform: translateY(-2px);
+}
+
+/* INSTAGRAM ICON IN HEADER */
+.nav-icon a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-icon a:hover {
+  color: #E1306C;
+  transform: scale(1.2);
+}
+
+/* SOCIAL ICONS */
+.social-icons a:hover {
+  color: #6c63ff;
+  transform: scale(1.1);
+}
+
+/* ================= CONTACT PAGE FIX ================= */
+
+.contact-page-body .main-nav a:hover {
+  color: #6c63ff !important;
+}
+
+.contact-page-body .nav-icon a:hover {
+  color: #E1306C !important;
+}
+
+/* ================= INSTAGRAM HANDLE ================= */
+
+.insta-handles a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.insta-handles a:hover {
+  color: #E1306C;
+  transform: scale(1.05);
+}
+
+/* ================= CONTACT FORM ================= */
+
+.contact-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  border: 2px solid #1f3d1f;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  background: #fff;
+  color: #333;
+  transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #6c63ff;
+}
+
+/* BUTTON */
+.contact-form button {
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #1f3d1f;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #6c63ff;
+  transform: translateY(-2px);
+}

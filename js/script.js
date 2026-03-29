@@ -368,3 +368,25 @@ function updateCenterImage() {
 
 // run continuously
 setInterval(updateCenterImage, 100);
+
+// ================= WHATSAPP SEND =================
+
+function sendWhatsApp() {
+
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let message = document.getElementById("message").value;
+
+  if (!name || !email || !message) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  let phoneNumber = "+919666355136"; // 🔥 replace with your number
+
+  let text = `Hello, I'm ${name}%0AEmail: ${email}%0A${message}`;
+
+  let url = `https://wa.me/${phoneNumber}?text=${text}`;
+
+  window.open(url, "_blank");
+}

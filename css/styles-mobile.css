@@ -315,7 +315,7 @@
   /* IMAGE FIRST */
   .contact-right {
     order: 1;
-    margin-top: 100px;   /* 🔥 pulls image into CONTACT text */
+    margin-top: 150px;   /* 🔥 pulls image into CONTACT text */
     z-index: 2;
   }
 

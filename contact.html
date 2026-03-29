@@ -46,6 +46,7 @@
 }
   </style>
 
+
 </head>
 
 <!-- Loader Overlay -->
@@ -127,14 +128,25 @@
 
     <!-- LEFT -->
     <div class="contact-left">
-      <p class="contact-text">
-        Shoot me an email and let’s get to chatting.
-      </p>
 
-      <h3 class="email">
-        bhanoday.photography@gmail.com
-      </h3>
-    </div>
+  <p class="contact-text">
+    Shoot me a message and let’s get to chatting.
+  </p>
+
+  <!-- CONTACT FORM -->
+  <form class="contact-form" id="contact-form">
+
+  <input type="text" id="name" placeholder="Your Name" required>
+
+  <input type="email" id="email" placeholder="Your Email" required>
+
+  <textarea id="message" placeholder="Your Message" required></textarea>
+
+  <button type="button" onclick="sendWhatsApp()">Send via WhatsApp</button>
+
+</form>
+
+</div>
 
     <!-- RIGHT -->
     <div class="contact-right">
