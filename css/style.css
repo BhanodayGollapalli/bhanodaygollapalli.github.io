@@ -89,7 +89,7 @@ html, body {
 }
 
 
-/* ================= HERO ================= */
+/* ================= MAIN PAGE HERO ================= */
 
 .hero {
   height: 90vh;
@@ -179,7 +179,7 @@ html, body {
 }
 
 .scroll-container {
-  margin-top: 40px;
+  margin-top: 25px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -306,68 +306,49 @@ html, body {
   opacity: 1;
 }
 
-/* ---------------------ABOUT----------------------*/
 
-/* ===== ABOUT HERO ===== */
 
-.about-hero {
-  position: relative;
-  width: 100%;
-  height: 85vh;
-  overflow: hidden;
-  
+/* ===== NEW ABOUT SECTION ===== */
+
+.about-section {
+  padding: 100px 20px 60px;
+}
+
+.about-container {
+  max-width: 1300px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+
+  align-items: center;
+}
+
+/* TEXT */
+.about-text {
+  max-width: 520px;
+}
+
+.about-text h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 16px;
 }
 
 /* IMAGE */
-.about-hero-img {
+.about-image img {
   width: 100%;
-  height: 100%;
+  height: 85vh;   /* 🔥 BIG cinematic feel */
   object-fit: cover;
-
-  object-position: center 18%; /* 👈 move image UP */
-
-  transform: scale(1.02); /* slight cinematic zoom */
-}
-
-/* DARK OVERLAY */
-.about-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-}
-
-/* TEXT CONTENT */
-.about-hero-content {
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  transform: translateY(-50%);
-
-  color: white;
-  max-width: 500px;
-
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 1s ease forwards;
-}
-
-/* TEXT STYLE */
-.about-hero-content h2 {
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-
-.about-hero-content p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #ddd;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  border-radius: 8px;
+  object-position: top center;
 }
 /* ---------------------CONTACT FORM----------------------*/
 
@@ -945,44 +926,18 @@ html, body {
 }
 
 @media (max-width: 768px) {
-
-  .about-hero {
-    height: 70vh;
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
-  .about-hero-content {
-    position: absolute;
-    bottom: 10px;   /* 👈 move to bottom */
-    left: 20px;
-    right: 20px;
-
-    transform: none;
-    text-align: center;
+  .about-text {
+    max-width: 100%;
   }
 
-  .about-hero-content h2 {
-    font-size: 26px;
-    margin-bottom: 8px;
+  .about-image img {
+    height: 400px;
   }
-
-  .about-hero-content p {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .about-hero-img {
-    object-position: center 20%;
-  }
-
-  .about-hero-overlay {
-    background: linear-gradient(
-      to top,
-      rgba(0,0,0,0.8),
-      rgba(0,0,0,0.3),
-      rgba(0,0,0,0)
-    );
-  }
-
 }
 
 @media (max-width: 768px) {
