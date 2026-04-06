@@ -184,12 +184,22 @@ const form = document.querySelector(".contact-form");
 const msg = document.getElementById("successMsg");
 
 if (form) {
-  form.addEventListener("submit", function () {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // 🔥 STOP redirect
+
+    const formData = new FormData(form);
+
+    await fetch("https://formsubmit.co/ajax/bhanoday.Photography@gmail.com", {
+      method: "POST",
+      body: formData
+    });
+
+    // show success message
     if (msg) {
-      setTimeout(() => {
-        msg.classList.add("show");
-      }, 500);
+      msg.classList.add("show");
     }
+
+    form.reset(); // clear form
   });
 }
 
