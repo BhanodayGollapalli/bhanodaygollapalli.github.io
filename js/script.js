@@ -140,6 +140,10 @@ window.addEventListener("resize", hideNavOnMobile);
 // PROJECT PAGE GALLERY FADE IN
 const fadeImages = document.querySelectorAll(".gallery-img");
 
+images.forEach((img, index) => {
+  img.style.transitionDelay = `${index * 40}ms`; // 👈 KEY LINE
+});
+
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -148,16 +152,18 @@ const observer = new IntersectionObserver((entries, observer) => {
       if (img.complete) {
         img.classList.add("loaded");
       } else {
-        img.addEventListener("load", () => {
-          img.classList.add("loaded");
-        });
+        img.onload = () => {
+          requestAnimationFrame(() => {
+            img.classList.add("loaded");
+          });
+        };
       }
 
       observer.unobserve(img);
     }
   });
 }, {
-  threshold: 0.1
+  threshold: 0.2
 });
 
 fadeImages.forEach(img => {
@@ -225,3 +231,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+const isMobile = window.innerWidth < 768;
+
+if (isMobile) {
+  document.querySelectorAll(".gallery-img").forEach((img, index) => {
+    if (index < 12) {
+      img.loading = "eager";
+      img.setAttribute("fetchpriority", "high");
+    }
+  });
+}
