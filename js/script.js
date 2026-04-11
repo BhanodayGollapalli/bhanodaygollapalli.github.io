@@ -233,6 +233,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+// mobile image loading priority
+
 const isMobile = window.innerWidth < 768;
 
 if (isMobile) {
@@ -242,4 +244,21 @@ if (isMobile) {
       img.setAttribute("fetchpriority", "high");
     }
   });
+}
+
+
+// About image load
+
+const aboutImg = document.querySelector(".about-image img");
+
+if (aboutImg) {
+  if (aboutImg.complete) {
+    aboutImg.classList.add("loaded");
+  } else {
+    aboutImg.onload = () => {
+      requestAnimationFrame(() => {
+        aboutImg.classList.add("loaded");
+      });
+    };
+  }
 }
