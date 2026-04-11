@@ -140,14 +140,19 @@ window.addEventListener("resize", hideNavOnMobile);
 // PROJECT PAGE GALLERY FADE IN
 const fadeImages = document.querySelectorAll(".gallery-img");
 
-images.forEach((img, index) => {
-  img.style.transitionDelay = `${index * 40}ms`; // 👈 KEY LINE
+// assign index once
+fadeImages.forEach((img, index) => {
+  img.dataset.index = index;
 });
 
-const observer = new IntersectionObserver((entries, observer) => {
+const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
+    const img = entry.target;
+
     if (entry.isIntersecting) {
-      const img = entry.target;
+
+      // 🔥 apply delay every time it enters
+      img.style.transitionDelay = `${img.dataset.index * 40}ms`;
 
       if (img.complete) {
         img.classList.add("loaded");
@@ -159,11 +164,13 @@ const observer = new IntersectionObserver((entries, observer) => {
         };
       }
 
-      observer.unobserve(img);
+    } else {
+      // 🔥 remove when leaving viewport
+      img.classList.remove("loaded");
     }
   });
 }, {
-  threshold: 0.2
+  threshold: 0.15
 });
 
 fadeImages.forEach(img => {

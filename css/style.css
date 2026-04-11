@@ -216,7 +216,7 @@ html, body {
 
 .gallery-img {
   opacity: 0;
-  filter: blur(18px);
+  filter: blur(8px);
   transform: scale(1.08);
 
   transition: 
