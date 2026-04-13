@@ -269,3 +269,16 @@ if (aboutImg) {
     };
   }
 }
+
+
+//Disable right click 
+
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+});
+
+//Disable dragging images to desktop
+
+document.querySelectorAll("img").forEach(img => {
+  img.setAttribute("draggable", "false");
+});
