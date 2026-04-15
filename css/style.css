@@ -476,7 +476,7 @@ html, body {
 
 .project-container {
   max-width: 1700px;
-  margin: 120px auto;
+  margin: 120px auto 5px;
   padding: 0 10px;
 }
 

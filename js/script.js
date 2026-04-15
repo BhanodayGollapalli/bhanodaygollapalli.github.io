@@ -282,3 +282,6 @@ document.addEventListener("contextmenu", function (e) {
 document.querySelectorAll("img").forEach(img => {
   img.setAttribute("draggable", "false");
 });
+
+
+
