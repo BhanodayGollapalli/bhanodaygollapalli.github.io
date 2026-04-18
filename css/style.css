@@ -638,7 +638,43 @@ html, body {
   transform: translateY(-50%) scale(1.08);
 }
 
+/* ================= END NOTE ================= */
 
+.end-note {
+  text-align: center;
+  margin: 80px 0 40px;
+}
+
+.end-note p {
+  font-size: 14px;
+  color: #666;
+}
+
+.end-note .explore {
+  margin-top: 5px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.project-links {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.project-links a {
+  text-decoration: none;
+  font-size: 13px;
+  color: black;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.project-links a:hover {
+  border-color: black;
+}
 
 /* ================= FOOTER ================= */
 
