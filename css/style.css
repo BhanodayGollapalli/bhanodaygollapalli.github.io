@@ -774,15 +774,68 @@ html, body {
   background: #333;
 }
 
-
+.tap-hint {
+  display: none;  /* ❌ hide by default (desktop) */
+}
 
 /* ================= RESPONSIVE ================= */
 
+@media (max-width: 768px) {
 
-/* Responsive for Masonry */
+  .image-wrap::after {
+    opacity: 0; /* ❌ remove white overlay */
+  }
+
+  .overlay {
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    transform: none;
+
+    width: 100%;
+    padding: 12px;
+
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.6),
+      rgba(0,0,0,0)
+    );
+
+    text-align: left;
+  }
+
+  .overlay h3 {
+    font-size: 14px;
+    color: white;
+    
+  }
+
+  .overlay span {
+   display: block;
+   text-align: left;   /* 🔥 align with title */
+   width: auto;
+   margin-top: 1px;
+   color: #ccc;        /* subtle */
+   font-size: 11px;
+  }
+
+  /* tap hint */
+.tap-hint {
+  position: absolute;
+  bottom: 8px;
+  right: 30px;
+  display: block;  /* ✅ show only on mobile */
+  font-size: 11px;
+  color: rgba(255,255,255,0.8);
+
+  letter-spacing: 0.5px;
+}
+
+}
+
 /* ================= RESPONSIVE MASONRY & GRID ================= */
-
-/* ================= RESPONSIVE ADJUSTMENTS ================= */
 
 @media (max-width: 768px) {
   /* HOME PAGE: Keep as 1 column for better visibility */
