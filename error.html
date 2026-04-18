@@ -16,10 +16,12 @@
 }
 
 body {
-  height: 100vh;
+min-height: 100vh;
+  overflow-x: hidden;   /* allow horizontal inside slider */
+  overflow-y: auto;     /* allow vertical page */
   font-family: 'Poppins', sans-serif;
   color: white;
-  overflow: hidden;
+  
 }
 
 /* BACKGROUND IMAGE */
@@ -28,7 +30,7 @@ body {
   width: 100%;
   height: 100%;
   background: url('images/') center/cover no-repeat;
-  filter: brightness(50%) blur(0px);
+  filter: brightness(50%) blur(2px);
   transform: scale(1.05);
 }
 
@@ -49,6 +51,8 @@ body {
   align-items: center;
   text-align: center;
   padding: 20px;
+    align-items: flex-start;  /* 🔥 not center */
+
 }
 
 h1 {
@@ -107,6 +111,8 @@ h1 {
 
 .preview-section {
   margin-top: 50px;
+  width: 100%;
+  overflow: hidden;   /* important */
 }
 
 .preview-title {
@@ -120,13 +126,28 @@ h1 {
 .preview-grid {
   display: flex;
   gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
+
+ touch-action: pan-x;     /* ✅ allow only horizontal swipe */
+  -webkit-overflow-scrolling: touch;
+
+  flex-wrap: nowrap;     /* ✅ force single line */
+  padding-bottom: 10px;  /* little spacing for scroll */
+  width: max-content;  /* 🔥 allows true horizontal scroll */
+}
+
+.preview-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.preview-grid::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 10px;
 }
 
 /* ITEM */
 .preview-item {
   position: relative;
+  flex: 0 0 auto;   /* ✅ stops shrinking */
   width: 140px;
   height: 180px;
   overflow: hidden;
@@ -221,7 +242,19 @@ h1 {
       </div>
     </a>
 
-  </div>
+    <a href="project3.html" class="preview-item">
+      <img src="images/rushikonda beach/Golden Hour/IMG_2631.webp" alt="">
+      <div class="preview-overlay">
+        <span>Rushikonda Beach</span>
+      </div>
+    </a>
+
+    <a href="project4.html" class="preview-item">
+      <img src="images/odalarevu beach/Golden-Hour/IMG_4477.webp" alt="">
+      <div class="preview-overlay">
+        <span>Odalarevu Beach</span>
+      </div>
+    </a>
 
 </div>
 
@@ -231,6 +264,8 @@ h1 {
 </div>
 
 <div class="brand">BHANODAY GOLLAPALLI</div>
+
+<script src="js/script.js"></script>
 
 </body>
 </html>

@@ -217,7 +217,7 @@ html, body {
 .gallery-img {
   opacity: 0;
   filter: blur(8px);
-  transform: scale(1.08);
+  transform: scale(1);
 
   transition: 
     opacity 0.7s ease,
@@ -255,11 +255,7 @@ html, body {
 
 /* ================= CONTACT ================= */
 
-.contact {
-  margin-top: 120px;
-  padding: 40px;
-  text-align: center;
-}
+
 
 .contact-container {
   display: flex;
@@ -502,29 +498,44 @@ html, body {
 
 /* ================= MASONRY ================= */
 
+/* Project Page Masonry - Waterfall effect */
 .masonry {
-  column-count: 4;
-  column-gap: 8px;
+  max-width: 1500px;
+  margin: 0 auto 50px;   /* 🔥 spacing between sections */
+}
+
+.section-title {
+  margin: 50px 0 20px;
+  text-align: center;
+}
+
+.section-title:first-of-type {
+  margin-top: 0;
 }
 
 .masonry a {
-  display: block;
-  margin-bottom: 6px;
-  break-inside: avoid;
+  width: 25%; /* 4 columns for large screens */
+  padding: 4px;
+  box-sizing: border-box;
+  float: left;
 }
 
 .masonry img {
   width: 100%;
-  height: auto;
+  height: auto; /* Required for the masonry effect */
   display: block;
+  margin-bottom: 2px;
 }
 
-.section-title {
-  font-size: 22px;
-  margin: 50px 0 20px;
-  text-align: center;
-  letter-spacing: 1px;
+/* Clearfix for Masonry float */
+.masonry::after {
+  content: "";
+  display: block;
+  clear: both;
 }
+
+
+
 
 
 /* ================= LIGHTBOX ================= */
@@ -767,14 +778,42 @@ html, body {
 
 /* ================= RESPONSIVE ================= */
 
-@media (max-width: 1200px) {
-  .masonry { column-count: 3; }
+
+/* Responsive for Masonry */
+/* ================= RESPONSIVE MASONRY & GRID ================= */
+
+/* ================= RESPONSIVE ADJUSTMENTS ================= */
+
+@media (max-width: 768px) {
+  /* HOME PAGE: Keep as 1 column for better visibility */
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .grid .gallery-item {
+    width: 100%;
+  }
+
+  .grid .gallery-item img {
+    height: 450px; /* Restores the larger look for the home page */
+    object-fit: cover;
+  }
+
+  /* PROJECT PAGES: Force 3-column Masonry */
+  .masonry a {
+    width: 33.333% !important; 
+    padding: 2px !important;
+  }
+
+  .masonry img {
+    height: auto !important; /* Ensures images don't stretch in masonry */
+  }
 }
 
 @media (max-width: 768px) {
 
-
-  .masonry { column-count: 2; }
 
   /* NAV FIX */
   .nav-inner {
@@ -821,12 +860,7 @@ html, body {
   }
 }
 
-@media (max-width: 480px) {
-  .masonry { column-count: 3;
-             column-gap: 6px;
-           }
-  
-}
+
 
 
 

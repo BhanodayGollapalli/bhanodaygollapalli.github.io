@@ -285,3 +285,42 @@ document.querySelectorAll("img").forEach(img => {
 
 
 
+// masonry layout
+
+
+// ================= MULTIPLE MASONRY FIX =================
+
+const initAllMasonry = () => {
+  const grids = document.querySelectorAll(".masonry");
+
+  grids.forEach(grid => {
+    const msnry = new Masonry(grid, {
+      itemSelector: "a",
+      percentPosition: true,
+      columnWidth: "a",
+      transitionDuration: '0.3s'
+    });
+
+    imagesLoaded(grid).on('progress', function () {
+      msnry.layout();
+    });
+
+    // 🔥 Fix for your fade-in animation conflict
+    const observer = new MutationObserver(() => {
+      msnry.layout();
+    });
+
+    grid.querySelectorAll('img').forEach(img => {
+      observer.observe(img, {
+        attributes: true,
+        attributeFilter: ['class']
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      msnry.layout();
+    });
+  });
+};
+
+window.addEventListener("load", initAllMasonry);
