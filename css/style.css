@@ -495,6 +495,14 @@ html, body {
   color: #666;
 }
 
+.project-header .gear {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 30px;  /* 🔥 THIS creates gap before images */
+  font-weight: 600;
+}
+
+
 
 /* ================= MASONRY ================= */
 
