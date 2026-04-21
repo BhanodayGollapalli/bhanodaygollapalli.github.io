@@ -684,6 +684,8 @@ html, body {
   border-color: black;
 }
 
+
+
 /* ================= FOOTER ================= */
 
 .footer {
@@ -955,7 +957,15 @@ html, body {
   .project-header p {
     font-size: 14px;
   }
+
+  .project-header .gear {
+    font-weight: 600 !important;  /* 🔥 force override */
+  }
+  
 }
+
+
+  
 
 
 
