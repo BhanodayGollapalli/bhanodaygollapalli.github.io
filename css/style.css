@@ -499,7 +499,7 @@ html, body {
   display: block;
   margin-top: 10px;
   margin-bottom: 30px;  /* 🔥 THIS creates gap before images */
-  font-weight: 600;
+  font-weight: 500;
 }
 
 
@@ -959,7 +959,9 @@ html, body {
   }
 
   .project-header .gear {
+    
     font-weight: 600 !important;  /* 🔥 force override */
+    
   }
   
 }
