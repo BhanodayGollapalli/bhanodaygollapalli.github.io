@@ -314,10 +314,21 @@ button,input,select,textarea {
 }
 
 .contact-banner {
-    text-align:center;
-    padding:100px 20px;
-    background:#252923;
-    color:var(--paper)
+    text-align: center;
+    padding: 100px 20px;
+
+    background:
+        linear-gradient(
+            rgba(37, 41, 35, 0.75),
+            rgba(37, 41, 35, 0.75)
+        ),
+        url("../images/new/IMG_3887.webp");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: var(--paper);
 }
 
 .contact-banner .eyebrow {
