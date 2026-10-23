@@ -1,135 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Bhanoday Gollapalli Photography Portfolio - Portraits, Fashion, Cultural Events">
-  <title>Contact - Bhanoday Gollapalli</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-
-<header>
-  <div class="nav">
-  <div class="nav-inner">
-
-  
-
-    <div class="left">
-      <a href="index.html" class="active">My Work</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <div class="logo"> <a href="index.html"><img src="images/logo-black.png" alt="Logo" class="logo-img"></a> </div>
-
-    <div class="menu-toggle" id="menuToggle">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-
- 
-
-    <div class="right">
-      <a href="https://www.instagram.com/bhanodaygollapalli/" target = "_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.shutterstock.com/g/Bhanoday+Gollapalli?rid=481067133" target = "_blank"><i class="fas fa-camera"></i></a>
-    <a href="https://wa.me/+919666355136" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    </div>
-
-  </div>
-</div>
-</header>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">My Work</a>
-  <a href="contact.html">Contact</a>
-
-  <div class="mobile-social">
-    <a href="https://www.instagram.com/bhanodaygollapalli/" target = "_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.shutterstock.com/g/Bhanoday+Gollapalli?rid=481067133" target = "_blank"><i class="fas fa-camera"></i></a>
-    <a href="https://wa.me/+919666355136" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  </div>
-</div>
-
-<!---------------------------------------ABOUT SECTION------------------------------------------>
-
-<section class="about-section">
-
-  <div class="about-container">
-
-    <!-- LEFT TEXT -->
-    <div class="about-text">
-      <h2>About Me</h2>
-
-      <p>Hi, I’m Bhanoday Gollapalli, a photographer based in Andhra Pradesh.</p>
-
-      <p>
-        I didn’t get into photography to stage things or make everything look perfect.
-        I’m more interested in what’s real — the small moments, natural expressions,
-        and things that happen without planning.
-      </p>
-
-      <p>
-        I’m a bit of a quiet person, and I think that reflects in how I work.
-        I don’t like making people feel uncomfortable in front of the camera.
-        I prefer keeping things simple so you can just be yourself.
-      </p>
-
-      <p>
-        Most of what I shoot is about emotion, light, and everyday life.
-        If that’s what you’re looking for, feel free to reach out.
-      </p>
-    </div>
-
-    <!-- RIGHT IMAGE -->
-    <div class="about-image">
-      <img src="images/me.webp" alt="Bhanoday" loading="eager" fetchpriority="high" decoding="async">
-    </div>
-
-  </div>
-
-</section>
-
-<!---------------------------------------CONTACT------------------------------------------>
-
-<section class="contact">
-
-  <h1>Contact</h1>
-
-    <form class="contact-form" >
-
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_subject" value="New Contact from Portfolio">
-  <input type="hidden" name="_template" value="table">
-  
-
-  <label>Name *</label>
-  <input type="text" name="name" placeholder="Your Name" required>
-
-  <label>Email *</label>
-  <input type="email" name="email" placeholder="Your Email" required>
-
-  <label>Message *</label>
-  <textarea name="message" placeholder="Your Message" required></textarea>
-
-  <button type="submit">Send</button>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#f5f2ec">
+        <link rel="icon" href="images/favicon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Contact | Bhanu Lens Craft</title>
+        <meta name="description" content="Photography portfolio of Bhanu Lens Craft. Portraits, stories and creative photography.">
+    </head>
+    <body>
+        <header class="site-header">
+            <a class="wordmark" href="index.html">BHANU <span>LENS CRAFT</span>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fa-solid fa-bars">
+                </i>
+            </button>
+            <nav class="nav-links">
+                <a href="index.html" data-page="home">Home</a>
+                <a href="portfolio.html" data-page="portfolio">Portfolio</a>
+                <a href="about.html" data-page="about">About</a>
+                <a href="contact.html" data-page="contact">Contact</a>
+            </nav>
+        </header>
+        <main data-current-page="contact">
+            <section class="page-hero compact">
+                <p class="eyebrow">LET’S TALK</p>
+                <h1>Make room for<br>
+                    <em>your story.</em>
+                </h1>
+                <p class="lead">Tell me what you’re planning. Choose an option below and I’ll get back to you personally.</p>
+            </section>
+            <section class="contact-options">
+                <article class="contact-option">
+                    <div class="option-number">01 / SHOOT</div>
+                    <i class="fa-regular fa-calendar option-icon">
+                    </i>
+                    <h2>Appointment</h2>
+                    <p>Request a portrait session, creative shoot or photography booking. Share your preferred date and the kind of shoot you have in mind.</p>
+                    <form class="whatsapp-form" data-message-type="appointment">
+                        <label>Your name<input name="name" required placeholder="Name">
+                        </label>
+                        <label>Type of shoot<select name="shoot" required>
+                            <option value="">Choose a shoot</option>
+                            <option>Portrait session</option>
+                            <option>Couple / pre-wedding</option>
+                            <option>Event photography</option>
+                            <option>Product photography</option>
+                            <option>Creative collaboration</option>
+                            <option>Other</option>
+                        </select>
+                    </label>
+                    <label>Preferred date<input name="date" type="date">
+                    </label>
+                    <label>Details<textarea name="details" rows="3" placeholder="Location, ideas, questions…">
+                    </textarea>
+                </label>
+                <button class="btn btn-dark" type="submit">Request appointment <i class="fa-brands fa-whatsapp">
+                </i>
+            </button>
+        </form>
+    </article>
+    <article class="contact-option">
+        <div class="option-number">02 / BILLING</div>
+        <i class="fa-regular fa-file-lines option-icon">
+        </i>
+        <h2>Invoice & payment</h2>
+        <p>Need an invoice, quote or payment details? Send a request and we’ll confirm the amount and payment method directly. Payments are handled manually.</p>
+        <form class="whatsapp-form" data-message-type="invoice">
+            <label>Your name<input name="name" required placeholder="Name or business">
+            </label>
+            <label>Request type<select name="request" required>
+                <option value="">Choose an option</option>
+                <option>Request a quotation</option>
+                <option>Request an invoice</option>
+                <option>Payment details</option>
+                <option>Payment confirmation</option>
+                <option>Other billing question</option>
+            </select>
+        </label>
+        <label>Booking / reference (optional)<input name="reference" placeholder="Shoot or booking reference">
+        </label>
+        <label>Notes<textarea name="details" rows="3" placeholder="What should I know?">
+        </textarea>
+    </label>
+    <button class="btn btn-dark" type="submit">Send billing request <i class="fa-brands fa-whatsapp">
+    </i>
+</button>
 </form>
-
-    <p id="successMsg" class="success-msg">✅ Message sent succesfully! I’ll get back to you soon.</p>
-
-  <a href="https://wa.me/+919666355136" class="whatsapp-btn" target="_blank">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
+</article>
 </section>
-
-
-
-
-<script src="js/script.js"></script>
-
-</body>
+<section class="contact-direct">
+    <div>
+        <p class="eyebrow">PREFER A DIRECT MESSAGE?</p>
+        <h2>My inbox is open.</h2>
+    </div>
+    <div class="direct-links">
+        <a href="https://wa.me/919666355136">
+            <i class="fa-brands fa-whatsapp">
+            </i> WhatsApp</a>
+            <a href="https://www.instagram.com/bhanodaygollapalli/">
+                <i class="fa-brands fa-instagram">
+                </i> Instagram</a>
+                <a href="mailto:">
+                    <i class="fa-regular fa-envelope">
+                    </i> Email (add your address)</a>
+                </div>
+            </section>
+            <p class="manual-note">No online payment is taken on this website. Appointment dates are confirmed personally, and invoices or payment instructions are shared directly.</p>
+        </main>
+        <footer class="site-footer">
+            <a class="wordmark" href="index.html">BHANU <span>LENS CRAFT</span>
+            </a>
+            <p>Honest moments. Thoughtful frames.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/bhanodaygollapalli/" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram">
+                    </i>
+                </a>
+                <a href="https://wa.me/919666355136" aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp">
+                    </i>
+                </a>
+            </div>
+            <small>© <span id="year">
+            </span> Bhanu Lens Craft</small>
+        </footer>
+        <script src="js/script.js">
+        </script>
+    </body>
 </html>
