@@ -446,6 +446,134 @@ button,input,select,textarea {
     background:var(--paper)
 }
 
+
+.project-heading {
+    margin: 0 0 14px;
+}
+.project-heading .eyebrow {
+    margin-bottom: 6px;
+}
+.project-heading h2 {
+    margin: 0;
+}
+
+/* Full-size horizontal carousel for the Bug project */
+.project-carousel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 0 1.2vw 2px;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: 1.2vw;
+}
+.project-carousel::-webkit-scrollbar {
+    display: none;
+}
+.project-carousel .portfolio-item {
+    flex: 0 0 82vw;
+    width: 82vw;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    scroll-snap-align: center;
+}
+.project-carousel .portfolio-item img {
+    display: block;
+    width: 100%;
+    height: min(86vh, 900px);
+    max-height: min(86vh, 900px);
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+.carousel-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 1% 0;
+}
+.carousel-arrow {
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    font-size: 22px;
+    line-height: 1;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.carousel-arrow:hover {
+    opacity: .55;
+}
+/* White-flash lightbox transition */
+.lightbox figure {
+    position: relative;
+}
+.lightbox figure::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    opacity: 0;
+    pointer-events: none;
+}
+.lightbox figure.flash-out::after {
+    animation: lightbox-white-flash .42s ease-in-out;
+}
+.lightbox figure img {
+    opacity: 1;
+    transition: opacity .18s ease-in-out;
+    will-change: opacity;
+}
+.lightbox figure img.is-changing {
+    opacity: 0;
+}
+@keyframes lightbox-white-flash {
+    0% { opacity: 0; }
+    35% { opacity: .96; }
+    100% { opacity: 0; }
+}
+@media(max-width:800px) {
+    .project-heading {
+        margin-bottom: 10px;
+    }
+    .project-carousel {
+        gap: 8px;
+        padding-inline: 11%;
+        scroll-padding-inline: 11%;
+    }
+    .project-carousel .portfolio-item {
+        flex-basis: 78%;
+        width: 78%;
+        scroll-snap-align: center;
+    }
+    .project-carousel .portfolio-item img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: 62vh;
+        object-fit: contain;
+    }
+}
+@media(prefers-reduced-motion: reduce) {
+    .lightbox figure img {
+        transition: none;
+    }
+    .project-carousel {
+        scroll-behavior: auto;
+    }
+}
+
 .portfolio-cta {
     border-top:1px solid var(--line);
     padding:50px 9%;
@@ -884,4 +1012,70 @@ button,input,select,textarea {
     width:100%
 }
 
+}
+
+/* Desktop horizontal carousel: natural image widths, minimal gaps */
+
+@media (min-width: 801px) {
+    .project-carousel {
+        gap: 8px !important;
+        padding-inline: 12px !important;
+        scroll-padding-inline: 12px !important;
+        align-items: center;
+    }
+
+    .project-carousel .portfolio-item {
+        flex: 0 0 auto !important;
+        width: auto !important;
+        max-width: none !important;
+        scroll-snap-align: start;
+    }
+
+    .project-carousel .portfolio-item img {
+        display: block;
+        width: auto !important;
+        height: min(86vh, 900px) !important;
+        max-height: min(86vh, 900px) !important;
+        max-width: none !important;
+        object-fit: contain;
+    }
+}
+
+
+/* Mobile carousel: same image height, natural width, no crop */
+@media (max-width: 800px) {
+    .project-carousel {
+        align-items: center !important;
+        gap: 8px !important;
+        padding-inline: 12px !important;
+        scroll-padding-inline: 12px !important;
+    }
+
+    .project-carousel .portfolio-item {
+        display: flex !important;
+        flex: 0 0 auto !important;
+        width: auto !important;
+        height: min(42vh, 250px) !important;
+        min-height: min(42vh, 250px) !important;
+        max-width: none !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 !important;
+        scroll-snap-align: center !important;
+    }
+
+    .project-carousel .portfolio-item img {
+        display: block !important;
+        width: auto !important;
+        height: 100% !important;
+        max-width: none !important;
+        max-height: 100% !important;
+        object-fit: contain !important;
+        object-position: center !important;
+    }
+}
+
+/* Filtering must override carousel display:flex rules on desktop and mobile */
+.portfolio-item[hidden] {
+    display: none !important;
 }
